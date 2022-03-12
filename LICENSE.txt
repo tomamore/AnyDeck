@@ -1,9 +1,9 @@
-################################### Copywriter and Licenses ###################################
+################################### Licenses ##################################################
 #                                                                                             #
-# Copyright 2022 Thomas Amore Jr. <email address> <v.1.0>                                     #
-#                        n                                                                           #
+# Copyright 2022 Thomas Amore Jr. <email address> <v.0.1>                                     #
+#                                                                                             #
 # This file is part of the AnyDeck Python Library                                             #
-# <url>                                                                                       #
+# https://github.com/tomamore/AnyDeck                                                         #
 #                                                                                             #
 # RELEASED UNDER MIT LICENSE (with gentlemanly addition)                                      #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this        #

@@ -154,6 +154,7 @@ method is called with the dictionary which will set the cards to the values list
 
 ## Class - Card:
 ### Attributes:
+
 * **face:** (str) The human readable text of a card (ie: "2" or "Ace") (Default - None)
 * **suit:** (str) The human readable text of a card suit (ie: "Spades" or "Red") (Default - None)
 * **value:** (int) Value assigned to card (Default - 0)
@@ -164,6 +165,12 @@ method is called with the dictionary which will set the cards to the values list
 * **child_deck_num:** (int) The sequence number of the child deck (Default - None)
 
 ## Class - AnyDeck:
+###**Attributes**
+
+* **total_cards:** (int) Returns the amount of cards which encompass the entire deck at creation
+* **remaining_cards:** (int) Returns the amount of cards remaining in the deck
+* **deck_info:** (dict) Returns a dictionary with information about the total deck
+
 ### Methods:
 ### \_\_inti\_\_:
 During the initialization of the library the arguments are passed to the new_deck function. If the library is called without cards and suits then a default deck will be generated which includes a standard deck of US playing cards.
