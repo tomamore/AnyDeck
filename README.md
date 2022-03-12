@@ -9,7 +9,7 @@ shuffling is handled by the deck object. Useful for the creation of a game or ap
 that uses any deck of cards which must be created and tracked through the game play.
 ___
 ## Installation:
-	    pip -install AnyDeck
+	    pip -install anydeck
 ___
 ## Usage:
 ### Definitions:
