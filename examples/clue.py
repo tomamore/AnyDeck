@@ -1,4 +1,4 @@
-from anydeck.anydeck import AnyDeck
+from anydeck import AnyDeck
 
 # create three different types of cards that will all be part of a single deck
 # This is done by 'retaining' the cards from the last created deck for each new deck

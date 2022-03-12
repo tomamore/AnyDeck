@@ -1,4 +1,4 @@
-from anydeck.anydeck import AnyDeck
+from anydeck import AnyDeck
 
 # Create two independent decks
 community_chest_cards = AnyDeck()

@@ -1,4 +1,4 @@
-from anydeck.anydeck import AnyDeck
+from anydeck import AnyDeck
 
 # Create a shuffled deck with 2 wild cards with a face of 'Joker'
 cards = AnyDeck(shuffled=True, wilds=['Joker', 'Joker'])
