@@ -1,4 +1,4 @@
-from anydeck import AnyDeck
+from anydeck.anydeck import AnyDeck
 
 # Create a default deck
 # A default deck consists of a standard deck of poker cards with four suits with cards numbered 2 through 10, as well

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: anydeck
-Version: 0.1
+Version: 0.1.2
 Summary: Generates a deck of virtually any type of cards from which drawing, adding, removing, and shuffling is handled by the module.
 Home-page: https://github.com/tomamore/aydeck
 Author: Thomas Amore Jr.

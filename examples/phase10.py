@@ -1,4 +1,4 @@
-from anydeck import AnyDeck
+from anydeck.anydeck import AnyDeck
 
 cards = AnyDeck()
 

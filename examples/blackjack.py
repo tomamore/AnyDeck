@@ -12,7 +12,7 @@ winner.
 
 """
 
-from anydeck import AnyDeck
+from anydeck.anydeck import AnyDeck
 
 
 def show_hand(current_hand):
