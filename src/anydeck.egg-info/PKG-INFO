@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: AnyDeck
-Version: 0.1.6
+Version: 0.1.7
 Summary: Generates a deck of virtually any type of cards from which drawing, adding, removing, and shuffling is handled by the module.
 Home-page: https://github.com/tomamore/anydeck
 Author: Thomas Amore Jr.
@@ -30,7 +30,7 @@ shuffling is handled by the deck object. Useful for the creation of a game or ap
 that uses any deck of cards which must be created and tracked through the game play.
 ___
 ## Installation:
-	    pip -install anydeck
+	    pip install AnyDeck
 ___
 ## Usage:
 ### Definitions:
@@ -133,9 +133,9 @@ cards numbered 1 to 12 for each suit provided for the number of decks provided.
    so we end up with a deck of 108 cards. This is the same as....
         ``` python
                cards.new_deck(decks=2,
-                              suits=('Red', 'Blue', 'Yellow', 'Green'),
-                              cards=('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'),
-                              wilds=('Skip', 'Skip', 'Joker', 'Joker', 'Joker, 'Joker')
+                              suits=['Red', 'Blue', 'Yellow', 'Green'],
+                              cards=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+                              wilds=['Skip', 'Skip', 'Joker', 'Joker', 'Joker, 'Joker'])
         ```
 
       ....since each child deck gets one of each wild card provided to the argument. Thus, each child deck 
@@ -144,10 +144,10 @@ cards numbered 1 to 12 for each suit provided for the number of decks provided.
 
 
 5. "Special Cards" are passed as Card objects and are added to the top of the deck regardless of the amount of 
-child decks added. In this example a special card with just the face value of "Old Main" is created and then 
+child decks added. In this example a special card with just the face value of "Old Maid" is created and then 
 passed to the new_deck method. This example will create the special card and then two decks of regular cards that 
 were added by face.
-``` python
+``` pythonls
     old_maid_card = Card(face="Old Maid")
 
     cards.new_deck(decks=2,
@@ -178,13 +178,13 @@ hand, choose to alternate the dealing of the cards, and handle situations where 
 Classes and Methods section.
 
 ### Replacing Used Cards:
-At any time, the cards which have already been drawn can be return to the bottom of the deck with:
+At any time, the cards which have already been drawn can be returned to the bottom of the deck with:
 ```python
    cards.replace_used_cards()
 ```
 
 The default behavior is not to shuffle the cards but to simply place them back into the deck. An argument can be
-pass to shuffle the used pile before putting the cards on the bottom as well as shuffling the entire deck after
+passed to shuffle the used pile before putting the cards on the bottom as well as shuffling the entire deck after
 replacing the used cards. Refer to the Classes and Methods section.
 
 ### Replacing card values from a dictionary:
