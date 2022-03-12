@@ -21,7 +21,7 @@ for card in cards.deck:
     if card.value == 11 and card.unique_card_num < cards.total_cards and card.child_order_num % 52 != 0:
         print('\n                     @@@@@@@@@@@@@@@@@@@ Next Suit in Child Deck @@@@@@@@@@@@@@@@@@@\n')
     if card.child_order_num % 52 == 0 and card.unique_card_num < cards.total_cards:
-        print('\n                     ******************* NEXT CHILD DECK *******************\n')
+        print('\n                     ***************** NEXT CHILD DECK *****************\n')
 
 print('\n****Deck Information stored at deck creation*****\n')
 
