@@ -1,4 +1,4 @@
-from anydeckimport AnyDeck
+from anydeck import AnyDeck
 
 # Please forgive this sloppy mess. It's meant to be run and the code worked through while
 # seeing the values assigned to the cards. I tried to keep the code simple to make following
