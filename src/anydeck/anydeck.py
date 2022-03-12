@@ -223,7 +223,7 @@ class AnyDeck:
                             drawn_list[j].append(self.draw())
                         elif self.remaining_cards <= 0 and refill:
                             self.replace_used_cards(shuffle=True)
-                            if len(self.used_cards) <= 0:
+                            if len(self.deck) <= 0:
                                 for card in self._full_deck:
                                     self._deck.append(card)
                                 self.shuffle()
@@ -237,7 +237,7 @@ class AnyDeck:
                             drawn_list[i].append(self.draw())
                         elif self.remaining_cards <= 0 and refill:
                             self.replace_used_cards(shuffle=True)
-                            if len(self.used_cards) <= 0:
+                            if len(self.deck) <= 0:
                                 for card in self._full_deck:
                                     self._deck.append(card)
                                 self.shuffle()
