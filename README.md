@@ -1,9 +1,23 @@
+# AnyDeck Python Library
+___
+#### Author: Thomas Amore Jr
+#### License: MIT
+___
+## Purpose:
+Generates a deck of virtually any type of cards from which drawing, adding, removing, and 
+shuffling is handled by the deck object. Useful for the creation of a game or application 
+that uses any deck of cards which must be created and tracked through the game play.
+___
+## Installation:
+	    pip -install AnyDeck
+___
+## Usage:
 ### Definitions:
 
 * **Special Cards**: One off cards that are added to the parent deck
 * **Wild Cards**: Added to the end of each child deck
-* **Child Deck**: An indivivual deck of regular and wild cards
-* **Parent Deck**: The all encompassing deck that you will ultimently interact with. Includes all child decks and special cards
+* **Child Deck**: An individual deck of regular and wild cards
+* **Parent Deck**: The all encompassing deck that you will ultimately interact with. Includes all child decks and special cards
 				   
 ### Order of Card Insertion at Deck Creation:
 1. Retained, unused, cards
@@ -12,7 +26,7 @@
 4. Wild Cards
 
 ### Deck Creation:
-The simplest implementation is to simply call the library. With this call you will have a standard deck of 52 cards in a list of 'Card' objects refered to as the 'deck'.
+The simplest implementation is to simply call the library. With this call you will have a standard deck of 52 cards in a list of 'Card' objects referred to as the 'deck'.
 
 ``` python
     cards = AnyDeck()
@@ -23,9 +37,9 @@ Now let's take a look at the deck...
         print(f'{card.face} of {card.suit}')
 ```
 		
-Notice that the cards are not shuffled. Shuffeling can be handled in two ways.
+Notice that the cards are not shuffled. Shuffling can be handled in two ways.
 
-* During initization of the the deck
+* During initiation of the deck
 
 ``` python
     cards = AnyDeck(shuffled=True)
@@ -39,7 +53,8 @@ Instead of using the default cards you can get a _custom deck_ of regular cards 
 
 For example:
 
-1. Create a deck of cards for the faces listed in 'cards'. A card will be created for each card in each suit provided. In this case a deck will be created with 8 cards, all with the suit of 'Tarot'
+1. Create a deck of cards for the faces listed in 'cards'. A card will be created for each card in each suit provided. 
+In this case a deck will be created with 8 cards, all with the suit of 'Tarot'
 
 ``` python
     cards = AnyDeck(suits='Tarot',
@@ -47,7 +62,8 @@ For example:
                     'The Sun', 'The Tower', 'Temperance'))
 ```
 
-2. Create a set of multiple decks of regular cards added into one parent deck. The following will yield a deck of 96 cards numbered 1 to 12 for each suit provided for the number of decks provided.
+2. Create a set of multiple decks of regular cards added into one parent deck. The following will yield a deck of 96 
+cards numbered 1 to 12 for each suit provided for the number of decks provided.
 ``` python
     cards.new_deck(decks=2,
                    suits=('Red', 'Blue', 'Yellow', 'Green'),
@@ -61,7 +77,8 @@ For example:
                    cards=('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'),
                    wilds='Skip')
 ```
-4. Let's add a total of 4 'Skip' cards and 8 'Joker' cards to the original deck. In this case we will utilize the 'retain' argument of the new_deck method.
+4. Let's add a total of 4 'Skip' cards and 8 'Joker' cards to the original deck. In this case we will utilize the 
+'retain' argument of the new_deck method.
 
    * First, we create the base deck of 96 cards:
         ``` python
@@ -70,7 +87,10 @@ For example:
                            cards=('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')) 
         ```
 
-   * Now we can add the 'Skip' cards by retaining the original deck and adding the new deck into it by creating four child decks with a face of 'Skip' and a suit of 'Wild'. Since we passed the suits and cards arguments the default cards will not be generated. When the new_deck is generated it will retain the cards created from the first deck due to the retain flag being True.
+   * Now we can add the 'Skip' cards by retaining the original deck and adding the new deck into it by creating
+   four child decks with a face of 'Skip' and a suit of 'Wild'. Since we passed the suits and cards arguments the 
+   default cards will not be generated. When the new_deck is generated it will retain the cards created from the 
+   first deck due to the retain flag being True.
         ``` python
             cards.new_deck(decks=4,
                            retain_unused = True,
@@ -78,14 +98,18 @@ For example:
                            cards='Skip')  
         ```
    
-   * Finally, to add the eight jokers we do the same thing again. This time though we will simply override the adding of the default cards so that we can make a deck of eight children decks (each consisting of a single card) and again using the retain deck to keep all of the already generated cards.
+   * Finally, to add the eight jokers we do the same thing again. This time though we will simply override the 
+   adding of the default cards so that we can make a deck of eight children decks (each consisting of a single card) 
+   and again using the retained deck to keep all the already generated cards.
         ``` python
             cards.new_deck(decks=8
                            retain_unused = True,
                            wilds='Joker',
                            override_defaults=True)
         ```
-   * Notice that what we did was first create a deck of 96 standard cards, and then a deck of 4 'Skip' cards, and finally a deck of 8 'Joker' cards. Using retain we kept the cards from each deck as a new deck was added so we end up with a deck of 108 cards. This is the same as....
+   * Notice that what we did was first create a deck of 96 standard cards, and then a deck of 4 'Skip' cards, 
+   and finally a deck of 8 'Joker' cards. Using retain we kept the cards from each deck as a new deck was added,
+   so we end up with a deck of 108 cards. This is the same as....
         ``` python
                cards.new_deck(decks=2,
                               suits=('Red', 'Blue', 'Yellow', 'Green'),
@@ -93,10 +117,15 @@ For example:
                               wilds=('Skip', 'Skip', 'Joker', 'Joker', 'Joker, 'Joker')
         ```
 
-      ....since each child deck gets one of each wild card provided to the argument. Thus, each child deck would have 2 Skip and 4 Joker cards. With that we would end up with the same 108 cards only in a slightly different order (see 'Order of card insertion at deck creation')
+      ....since each child deck gets one of each wild card provided to the argument. Thus, each child deck 
+   would have 2 Skip and 4 Joker cards. With that we would end up with the same 108 cards only in a slightly 
+   different order (see 'Order of card insertion at deck creation')
 
 
-5. "Special Cards" are passed as Card objects and are added to the top of the deck regardless of the amount of child decks added. In this example a special card with just the face value of "Old Main" is created and then passed to the new_deck method. This example will create the special card and then two decks of regular cards that were added by face.
+5. "Special Cards" are passed as Card objects and are added to the top of the deck regardless of the amount of 
+child decks added. In this example a special card with just the face value of "Old Main" is created and then 
+passed to the new_deck method. This example will create the special card and then two decks of regular cards that 
+were added by face.
 ``` python
     old_maid_card = Card(face="Old Maid")
 
@@ -114,15 +143,18 @@ There are two main ways to draw cards.
 ```python
    card = cards.draw()
 ```
-* This will return a single card object from the top of the deck. See the method arguments for more information of where in the deck the card should come from.
+* This will return a single card object from the top of the deck. See the method arguments for more information of 
+where in the deck the card should come from.
 
 
 2. Multiple complete hands can be drawn at once with a single statement. The amount of cards in the hand is required. In
-   this case the hand size is 5 cards.
+this case the hand size is 5 cards.
 ```python
    card = cards.draw_hand(5)
 ```
-* A call to this method will return a list containing lists of cards. Further arguments can produce more than one hand, choose to alternate the dealing of the cards, and handle situations where the deck has run out. Refer to the Classes and Methods section.
+* A call to this method will return a list containing lists of cards. Further arguments can produce more than one 
+hand, choose to alternate the dealing of the cards, and handle situations where the deck has run out. Refer to the
+Classes and Methods section.
 
 ### Replacing Used Cards:
 At any time, the cards which have already been drawn can be return to the bottom of the deck with:
@@ -135,7 +167,8 @@ pass to shuffle the used pile before putting the cards on the bottom as well as 
 replacing the used cards. Refer to the Classes and Methods section.
 
 ### Replacing card values from a dictionary:
-Card values can be set by referring  to a dictionary passed to the dict_to_value method. A dictionary with keys equal to the face of the cards and values equal to the int value of the card is required.
+Card values can be set by referring  to a dictionary passed to the dict_to_value method. A dictionary with keys equal 
+to the face of the cards and values equal to the int value of the card is required.
 ```python
    community_chest_cards = AnyDeck()
 
@@ -165,15 +198,16 @@ method is called with the dictionary which will set the cards to the values list
 * **child_deck_num:** (int) The sequence number of the child deck (Default - None)
 
 ## Class - AnyDeck:
-###**Attributes**
+### **Attributes:**
 
 * **total_cards:** (int) Returns the amount of cards which encompass the entire deck at creation
 * **remaining_cards:** (int) Returns the amount of cards remaining in the deck
 * **deck_info:** (dict) Returns a dictionary with information about the total deck
 
 ### Methods:
-### \_\_inti\_\_:
-During the initialization of the library the arguments are passed to the new_deck function. If the library is called without cards and suits then a default deck will be generated which includes a standard deck of US playing cards.
+### AnyDeck():
+During the initialization of the library the arguments are passed to the new_deck function. If the library is 
+called without cards and suits then a default deck will be generated which includes a standard deck of US playing cards.
     
 **Arguments:**
 
@@ -190,10 +224,10 @@ During the initialization of the library the arguments are passed to the new_dec
         override_defaults: (bool) Allows you to override adding the default cards and suits so that only
                                   special or wild cards are added to the deck without any regular cards. (Default - False)
 
-### new_deck:
+### new_deck():
 Creates a new deck of cards from the provided arguments. If no cards and no suits are provided then a default deck
 of 2 through 10, Jack, Queen, King and Ave is generated. Wild and special cards can be added to a default deck. If
-you instead need a deck with no regular cards you can call 'override_defaults'. The retain arguments will allows for
+you instead need a deck with no regular cards you can call 'override_defaults'. The retain arguments will allow for
 keeping cards between cards to new_deck. Used cards are cards which have already been drawn from the deck. Retaining
 used cards will simply maintain the used pile. Unused cards are cards which are still in the deck when new_deck is
 called. Retaining unused cards are kept at the top of the deck and any new cards are added to the bottom of the unused
@@ -219,7 +253,7 @@ cards. Note that wild cards are added with a default suit of 'Wild' and a value 
 
 		Nothing
 ---
-### draw:
+### draw():
 Returns a Card object from the deck from the argument provided position. When a card is drawn it is added to the internal
 'used_cards' list. At the application level the card does not have to be returned to be considered 'used'.
 
@@ -236,7 +270,7 @@ Returns a Card object from the deck from the argument provided position. When a 
 		
 		Nothing
 ---
-### draw_hand:
+### draw_hand():
 Draws multiple cards into individual hands based on the arguments provided. Arguments will allow an alternating
 drawn where each hand is given a card in turn as opposed to each hand being given all cards before moving on
 to the next hand. Should the unused deck run out of cards the refill argument can be set to add the used cards back into
@@ -260,7 +294,7 @@ list will have only the cards left in order of the other arguments.
 		
 		List of Lists of Cards
 ---
-### add_card:
+### add_card():
 Add a Card object to the deck from the argument provided position.
 
 **Arguments:**
@@ -277,7 +311,7 @@ Add a Card object to the deck from the argument provided position.
 		
 		Nothing
 ---
-### shuffle:
+### shuffle():
 Shuffles the unused cards in the deck
 
 **Arguments:**
@@ -288,7 +322,7 @@ Shuffles the unused cards in the deck
 
 		Nothing
 ---
-### replace_used_cards:
+### replace_used_cards():
 Puts the used cards back into the bottom of the active deck.
 
 **Arguments:**
@@ -301,7 +335,7 @@ Puts the used cards back into the bottom of the active deck.
 
 		Nothing
 ---
-### dict_to_value:
+### dict_to_value():
 Take a dictionary of face:int value. The unused deck is looped through and if the face key is found to
 match the face of a card the value is updated for that card.
 
@@ -313,7 +347,7 @@ match the face of a card the value is updated for that card.
 
 	 	Nothing
 ---
-### get_deck_info:
+### get_deck_info():
 Returns a dictionary containing the 'child_decks', 'suits', 'cards', 'wilds', 'special_cards' and
 'total_cards' of the current deck.
 
@@ -325,7 +359,7 @@ Returns a dictionary containing the 'child_decks', 'suits', 'cards', 'wilds', 's
 
 		dict
 ---
-### clear_values:
+### clear_values():
 Sets the integer value of all unused cards to 'None'
 
 **Arguments:**
